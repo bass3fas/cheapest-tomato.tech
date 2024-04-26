@@ -29,4 +29,4 @@ def search_products():
     return jsonify(results)
 
 if __name__ == '__main__':
-    app.run(host='52.86.29.142', debug=True, port=8080)
+    app.run(host='0.0.0.0', debug=True, port=8080)
