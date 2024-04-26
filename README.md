@@ -135,7 +135,60 @@ CALL search_product_prices('Tomato'); -- Example usage for searching tomatoes
 
 
 ## 2-Choose Technologies:
-Backend: Python (Flask), MySQL for database storage
+### Backend: Python (Flask), MySQL for database storage
+#### Set Up Flask App:
+Make sure you have Flask installed in your Python environment. If not, you can install it using pip:
+```
+pip install flask
+```
+Then, create a Flask application and set up your project structure. 
+```
+#app.py
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+# Dummy data (replace with database interactions)
+products = [
+    {"id": 1, "name": "Tomatoes"},
+    {"id": 2, "name": "Potatoes"},
+    # Add more products
+]
+
+@app.route('/')
+def index():
+    return "Welcome to Cheapest Tomato API!"
+
+@app.route('/products', methods=['GET'])
+def get_products():
+    return jsonify(products)
+
+@app.route('/search', methods=['GET'])
+def search_products():
+    query = request.args.get('q')  # Get 'q' parameter from query string
+    if not query:
+        return jsonify({"error": "Missing search query"}), 400
+
+    # Perform search logic (e.g., search in database)
+    results = [p for p in products if query.lower() in p['name'].lower()]
+    return jsonify(results)
+
+if __name__ == '__main__':
+    app.run(debug=True)  # Run the app in debug mode
+```
+#### Run Your Flask App:
+```
+python app.py
+```
+#### Test API Endpoints:
+```
+curl http://localhost:5000/ #to see your welcome message.
+curl http://localhost:5000/products #to see the list of products.
+curl http://localhost:5000/search?q=tomato #to search for products containing "tomato" in their names.
+```
+Database Integration:
+Replace the dummy data and search logic with actual database queries to fetch product information and prices from your MySQL database.
+
 Frontend: HTML, CSS for a simple user interface
 ## 3-Implementing the Backend:
 Use Flask to create routes for handling user requests.
