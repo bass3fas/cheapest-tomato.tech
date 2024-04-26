@@ -183,14 +183,16 @@ python app.py
 #### Test API Endpoints:
 ```
 curl http://localhost:8080/ #to see your welcome message.
-curl http://localhost:8080/products #to see the list of products.
+curl http://localhost:8080/products #to see the list of products
 curl http://localhost:8080/search?q=tomato #to search for products containing "tomato" in their names.
 ```
 
 or simply write in your browser:
 
 cheapest-tomato.tech:8080
+
 cheapest-tomato.tech:8080/products
+
 cheapest-tomato.tech:8080/search?q=tomato
 
 
