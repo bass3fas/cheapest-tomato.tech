@@ -11,24 +11,24 @@ Prices: Product price in each shop
 
 Products Table:
 
-product_id (Primary Key)
-name
+product_id (Primary Key) \n
+name \n
 attributes (e.g., color, size)
 
 Shops Table:
 
-shop_id (Primary Key)
-name
-location
-branches
+shop_id (Primary Key) \n
+name \n
+location \n
+branches \n
 
 Prices Table:
 
-price_id (Primary Key)
-product_id (Foreign Key referencing Products Table)
-shop_id (Foreign Key referencing Shops Table)
-price
-last_updated (Timestamp for price update)
+price_id (Primary Key) \n
+product_id (Foreign Key referencing Products Table) \n
+shop_id (Foreign Key referencing Shops Table) \n
+price \n
+last_updated (Timestamp for price update) \n
 
 ```
 -- Create user
