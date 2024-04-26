@@ -10,15 +10,20 @@ Prices: Product price in each shop
 
 
 Products Table:
+
 product_id (Primary Key)
 name
 attributes (e.g., color, size)
+
 Shops Table:
+
 shop_id (Primary Key)
 name
 location
 branches
+
 Prices Table:
+
 price_id (Primary Key)
 product_id (Foreign Key referencing Products Table)
 shop_id (Foreign Key referencing Shops Table)
