@@ -174,7 +174,7 @@ def search_products():
     return jsonify(results)
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Run the app in debug mode
+    app.run(host='0.0.0.0', port=8080, debug=True)  # Run the app in debug mode
 ```
 #### Run Your Flask App:
 ```
@@ -182,10 +182,20 @@ python app.py
 ```
 #### Test API Endpoints:
 ```
-curl http://localhost:5000/ #to see your welcome message.
-curl http://localhost:5000/products #to see the list of products.
-curl http://localhost:5000/search?q=tomato #to search for products containing "tomato" in their names.
+curl http://localhost:8080/ #to see your welcome message.
+curl http://localhost:8080/products #to see the list of products
+curl http://localhost:8080/search?q=tomato #to search for products containing "tomato" in their names.
 ```
+
+or simply write in your browser:
+
+cheapest-tomato.tech:8080
+
+cheapest-tomato.tech:8080/products
+
+cheapest-tomato.tech:8080/search?q=tomato
+
+
 Database Integration:
 Replace the dummy data and search logic with actual database queries to fetch product information and prices from your MySQL database.
 
