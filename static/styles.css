@@ -1,0 +1,35 @@
+/* styles.css */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+:root {
+    --primary-color: #FF5733; /* Red */
+    --secondary-color: #4CAF50; /* Green */
+}
+
+/* Header styles */
+header {
+    background-color: var(--primary-color);
+    color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Main content styles */
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+p {
+    color: var(--secondary-color);
+}
