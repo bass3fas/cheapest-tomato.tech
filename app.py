@@ -14,7 +14,7 @@ products = [
 def index():
     return "Welcome to Cheapest Tomato API!"
 
-@app.route('/landing')
+@app.route('/about')
 def landing():
     return render_template('landing.html')
 
