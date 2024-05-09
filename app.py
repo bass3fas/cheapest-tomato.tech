@@ -12,7 +12,7 @@ products = [
 
 @app.route('/')
 def index():
-    return "Welcome to Cheapest Tomato API!"
+    return render_template('index.html')
 
 @app.route('/about')
 def landing():
