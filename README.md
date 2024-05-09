@@ -194,8 +194,23 @@ cheapest-tomato.tech:8080
 cheapest-tomato.tech:8080/products
 
 cheapest-tomato.tech:8080/search?q=tomato
+### Nginx and Landing page
+adde landing page to Flask, Configured Nginx to launch the flask app continously
+```
+#/etc/nginx/sites-available/flask_app
+server {
+    listen 80;
+    server_name cheapest-tomato.tech;
 
-
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
 Database Integration:
 Replace the dummy data and search logic with actual database queries to fetch product information and prices from your MySQL database.
 
