@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
 
@@ -13,6 +13,10 @@ products = [
 @app.route('/')
 def index():
     return "Welcome to Cheapest Tomato API!"
+
+@app.route('/landing')
+def landing():
+    return render_template('landing.html')
 
 @app.route('/products', methods=['GET'])
 def get_products():
