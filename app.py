@@ -53,24 +53,29 @@ def search_products():
     if not query:
         return jsonify({"error": "Missing search query"}), 400
 
-    # Construct SQL query using sqlalchemy.text
+    # Construct the SQL query to fetch product information along with attributes
     sql_query = text(f"""
-        SELECT pr.name AS product_name, s.name AS shop_name, p.price, p.last_updated
+        SELECT pr.name AS product_name, pr.attributes AS product_attributes, s.name AS shop_name, 
+        p.price, p.last_updated
         FROM prices p
         JOIN products pr ON p.product_id = pr.product_id
         JOIN shops s ON p.shop_id = s.shop_id
-        WHERE LOWER(pr.name) = LOWER(:query)  -- Using bound parameters
-        ORDER BY p.price ASC;
+        WHERE LOWER(pr.name) LIKE LOWER(:query)
+        ORDER BY p.price ASC
     """)
 
-    # Execute the SQL query with bound parameter
-    result = db.session.execute(sql_query, {'query': query})
-    price_list = [
-        {'product_name': row.product_name, 'shop_name': row.shop_name, 
-         'price': float(row.price), 'last_updated': row.last_updated} 
-        for row in result
-    ]
-    return jsonify(price_list)
+    # Execute the SQL query with the query parameter
+    results = db.session.execute(sql_query, {'query': f'%{query}%'})
+
+    # Convert the results to a list of dictionaries
+    product_list = [{'product_name': row.product_name, 'product_attributes': row.product_attributes,
+                     'shop_name': row.shop_name, 'price': row.price, 'last_updated': row.last_updated}
+                    for row in results]
+
+    # Close the database session
+    db.session.close()
+
+    return jsonify(product_list)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=8080)
