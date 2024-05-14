@@ -3,6 +3,8 @@
 ## Overview
 This project encompasses a web application that aids users in finding the best prices for products across various stores. It integrates data analysis techniques, user interactions, and database management to provide a seamless shopping experience.
 
+![image](https://github.com/bass3fas/cheapest-tomato.tech/assets/115794820/3936e6ad-080a-44ba-9aa8-17342f2a73ba)
+
 ## Steps Taken
 
 1. **Define Data Structure**:
