@@ -51,7 +51,7 @@ def get_products():
 def search_products():
     query = request.args.get('q')
     if not query:
-        return jsonify({"error": "Missing search query"}), 400
+        return render_template('search.html')
 
     # Construct the SQL query to fetch product information along with attributes
     sql_query = text(f"""
