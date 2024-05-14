@@ -1,0 +1,68 @@
+/* Button Style */
+.main-button-slider {
+    font-size: 14px;
+    border-radius: 25px;
+    padding: 15px 25px;
+    background-color: #fba70b;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; /* Smooth transition */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it inline */
+    cursor: pointer; /* Cursor style */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+}
+
+/* Button Hover Effect */
+.main-button-slider:hover {
+    background-color: #f1556a; /* Darker color on hover */
+}
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #191a20;
+}
+
+/* Style for the custom heading */
+.custom-heading {
+    font-weight: 900;
+    font-size: 36px; /* Adjust the font size as needed */
+    line-height: 48px; /* Adjust line height as needed */
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* Style for the yellow text */
+.yellow-text {
+    color: #fba70b; /* Yellow color */
+}
+
+/* Style for the search form */
+.search-form {
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+/* Style for the search input */
+#search_query {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* Style for the banner image */
+.banner-image {
+    max-width: 50%;
+    margin-top:-30px; /* Adjust margin as needed */
+}

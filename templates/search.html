@@ -7,29 +7,30 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.css') }}">
 
-    <!-- Templatemo Lava CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-lava.css') }}">
-
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl-carousel.css') }}">
+    <!-- Own style CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
 </head>
 <body>
-    <h1>Search Products</h1>
-    <form action="/search" method="GET">
-        <label for="search_query">Search Product:</label>
-        <input type="text" id="search_query" name="q" required>
-        <button type="submit">Search</button>
-    </form>
 
-    <!-- Display search results here -->
-    <div id="search_results">
-        <!-- Use JavaScript to populate search results if needed -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container text-center">
+                <h1 class="custom-heading">FIND THE <span class="yellow-text">CHEAPEST TOMATO</span></h1>
+                <img src="{{ url_for('static', filename='images/banner-bg.png') }}" alt="Banner Image" class="banner-image">
+                <form action="/search" method="GET" class="search-form">
+                    <input type="text" id="search_query" name="q" required>
+                    <button type="submit" class="main-button-slider">Search</button>
+                </form>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
     </div>
+    <!-- ***** Welcome Area End ***** -->
+
 </body>
 </html>
