@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
 from datetime import datetime  # Import datetime
 
 app = Flask(__name__)
@@ -52,10 +53,24 @@ def search_products():
     if not query:
         return jsonify({"error": "Missing search query"}), 400
 
-    # Perform search logic using SQLAlchemy query
-    results = Product.query.filter(Product.name.ilike(f'%{query}%')).all()
-    product_list = [{'id': product.id, 'name': product.name} for product in results]
-    return jsonify(product_list)
+    # Construct SQL query using sqlalchemy.text
+    sql_query = text(f"""
+        SELECT pr.name AS product_name, s.name AS shop_name, p.price, p.last_updated
+        FROM prices p
+        JOIN products pr ON p.product_id = pr.product_id
+        JOIN shops s ON p.shop_id = s.shop_id
+        WHERE LOWER(pr.name) = LOWER(:query)  -- Using bound parameters
+        ORDER BY p.price ASC;
+    """)
+
+    # Execute the SQL query with bound parameter
+    result = db.session.execute(sql_query, {'query': query})
+    price_list = [
+        {'product_name': row.product_name, 'shop_name': row.shop_name, 
+         'price': float(row.price), 'last_updated': row.last_updated} 
+        for row in result
+    ]
+    return jsonify(price_list)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=8080)
