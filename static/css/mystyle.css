@@ -37,10 +37,11 @@ body {
 /* Style for the custom heading */
 .custom-heading {
     font-weight: 900;
-    font-size: 36px; /* Adjust the font size as needed */
-    line-height: 48px; /* Adjust line height as needed */
+    font-size: 80px; /* Adjust the font size as needed */
+    line-height: 60px; /* Adjust line height as needed */
     letter-spacing: 1px;
     margin-bottom: 30px;
+    max-width: 100%
 }
 
 /* Style for the yellow text */
@@ -64,5 +65,6 @@ body {
 /* Style for the banner image */
 .banner-image {
     max-width: 50%;
-    margin-top:-30px; /* Adjust margin as needed */
+    margin-top:-50px; /* Adjust margin as needed */
+    margin-left: 250px;
 }
