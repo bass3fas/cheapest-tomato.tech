@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }} Availability</title>
+</head>
+<body>
+    <h2>{{ product.name }}</h2>
+    <h3>Available at:</h3>
+    <ul>
+        {% for shop in shops %}
+            <li>{{ shop.shop_name }} - ${{ shop.price }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

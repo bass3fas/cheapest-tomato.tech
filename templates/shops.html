@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shops</title>
+</head>
+<body>
+    <h2>Shops</h2>
+    <ul>
+        {% for shop in shops %}
+            <li>
+                <a href="/shop/{{ shop.shop_id }}">{{ shop.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
