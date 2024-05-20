@@ -3,29 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Search Results</title>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.css') }}">
-
-    <!-- Own style CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h2>Search Results</h2>
-    <ul>
-        {% for product in products %}
-            <li>
-                {{ product.product_name }} - ${{ product.price }} at {{ product.shop_name }}
-                <br>
-                Attributes: {{ product.product_attributes }}
-                <br>
-                Last Updated: {{ product.last_updated }}
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="results-container">
+        <h2>Search Results</h2>
+        <ul id="results-list">
+            {% for product in products %}
+                <li class="result-item {% if loop.first %}cheapest{% elif loop.index == 2 %}second-cheapest{% elif loop.index == 3 %}third-cheapest{% endif %}">
+                    {{ product.product_name }} - ${{ product.price }} at {{ product.shop_name }}
+                    <br>
+                    Attributes: {{ product.product_attributes }}
+                    <br>
+                    Last Updated: {{ product.last_updated }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
-

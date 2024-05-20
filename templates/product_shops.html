@@ -15,10 +15,10 @@
 </head>
 <body>
     <h2>{{ product.name }}</h2>
-    <h3>Available at:</h3>
+    <h3> --Available at:</h3>
     <ul>
         {% for shop in shops %}
-            <li>{{ shop.shop_name }} - ${{ shop.price }}</li>
+            <li>{{ shop.shop_name }} -  ${{ shop.price }}</li>
         {% endfor %}
     </ul>
 </body>

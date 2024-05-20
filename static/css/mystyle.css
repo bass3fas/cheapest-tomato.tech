@@ -24,18 +24,41 @@
 .main-button-slider:hover {
     background-color: #f1556a; /* Darker color on hover */
 }
-body, html {
-    height: 100%;
-}
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body, html {
+    height: 150%;
+    width: 70%
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
     color: #191a20;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('{{ url_for('static', filename='images/banner-bg.png') }}') no-repeat center center;
+    background-size: cover;
+    opacity: 0.5; /* 50% opacity */
+    z-index: -1; /* Ensure it stays behind other elements */
+}
+
+.results-container {
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Style for the custom heading */
@@ -79,5 +102,52 @@ body {
 .banner-image {
     max-width: 50%;
     margin-top:-30px; /* Adjust margin as needed */
-    margin-left: 350px;
+    margin-left:500px;
+}
+
+
+h2 {
+    font-size: 2.5em;
+    color: #fba70b;
+    margin-bottom: 20px;
+}
+
+ul#results-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-item {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 20px;
+    font-size: 1.2em;
+    transition: transform 0.2s;
+}
+
+.result-item:hover {
+    transform: scale(1.05);
+}
+
+.cheapest {
+    background-color: #ffcccc;
+    border: 2px solid red;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.second-cheapest {
+    background-color: #ffe6cc;
+    border: 2px solid orange;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.third-cheapest {
+    background-color: #ffffcc;
+    border: 2px solid yellow;
+    font-size: 1.3em;
+    font-weight: bold;
 }
